@@ -271,7 +271,9 @@ export default function SessionPage() {
             <Card className="w-full">
                 <CardHeader>
                     <Badge className="w-fit mb-2">{question.type}</Badge>
-                    <CardTitle className="text-xl leading-relaxed">{question.text}</CardTitle>
+                    <CardTitle className="text-xl leading-relaxed" dir="auto">
+                        {question.text}
+                    </CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-4">
 
@@ -353,6 +355,7 @@ export default function SessionPage() {
                             {/* dangerouslySetInnerHTML renders highlight tags as real HTML */}
                             <p
                                 className="text-sm leading-relaxed"
+                                dir="auto"
                                 dangerouslySetInnerHTML={{ __html: highlightFillers(transcript) }}
                             />
                             {Object.keys(fillerCounts).length > 0 && (
@@ -406,11 +409,15 @@ export default function SessionPage() {
                         <div className="border-t pt-4 flex flex-col gap-2">
                             <div className="text-sm">
                                 <span className="font-medium text-green-700">Strength: </span>
-                                <span className="text-muted-foreground">{analysis.top_strength}</span>
+                                <span className="text-muted-foreground" dir="auto">
+                                    {analysis.top_strength}
+                                </span>
                             </div>
                             <div className="text-sm">
                                 <span className="font-medium text-yellow-700">Improve: </span>
-                                <span className="text-muted-foreground">{analysis.top_improvement}</span>
+                                <span className="text-muted-foreground" dir="auto">
+                                    {analysis.top_improvement}
+                                </span>
                             </div>
                         </div>
                     </CardContent>
